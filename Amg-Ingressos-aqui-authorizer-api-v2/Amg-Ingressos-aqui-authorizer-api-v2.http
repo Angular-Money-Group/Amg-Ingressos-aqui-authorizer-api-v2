@@ -1,0 +1,6 @@
+@Amg_Ingressos_aqui_authorizer_api_v2_HostAddress = http://localhost:5187
+
+GET {{Amg_Ingressos_aqui_authorizer_api_v2_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
