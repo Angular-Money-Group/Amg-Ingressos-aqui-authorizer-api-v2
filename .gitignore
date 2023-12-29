@@ -1,0 +1,18 @@
+Amg-Ingressos-aqui-authorizer-api-v2/bin
+Amg-Ingressos-aqui-authorizer-api-v2/obj
+.vscode/
+.vs
+
+# User-specific files
+*.suo
+*.vsidx
+*.dtbcache.v2
+
+# Config files
+applicationhost*.config
+
+# Lock files
+read*.lock
+Amg-Ingressos-aqui-authorizer-api-v2/obj/Amg-Ingressos-aqui-authorizer-api-v2.csproj.nuget.dgspec.json
+Amg-Ingressos-aqui-authorizer-api-v2/obj/project.assets.json
+Amg-Ingressos-aqui-authorizer-api-v2/obj/project.nuget.cache

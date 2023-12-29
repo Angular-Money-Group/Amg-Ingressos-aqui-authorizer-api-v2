@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "c:\\projetos\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2.csproj": {}
+    "C:\\projetos\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2.csproj": {}
   },
   "projects": {
-    "c:\\projetos\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2.csproj": {
+    "C:\\projetos\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\projetos\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2.csproj",
+        "projectUniqueName": "C:\\projetos\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2.csproj",
         "projectName": "Amg-Ingressos-aqui-authorizer-api-v2",
-        "projectPath": "c:\\projetos\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2.csproj",
+        "projectPath": "C:\\projetos\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2.csproj",
         "packagesPath": "C:\\Users\\rober\\.nuget\\packages\\",
-        "outputPath": "c:\\projetos\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2\\obj\\",
+        "outputPath": "C:\\projetos\\Amg-Ingressos-aqui-authorizer-api-v2\\Amg-Ingressos-aqui-authorizer-api-v2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rober\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
         },
@@ -37,8 +37,8 @@
         }
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
             "Microsoft.AspNetCore.Authentication": {
               "target": "Package",
@@ -46,11 +46,7 @@
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[8.0.0, )"
-            },
-            "Microsoft.AspNetCore.OpenApi": {
-              "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[7.0.0, )"
             },
             "MongoDB.Driver": {
               "target": "Package",
@@ -84,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
