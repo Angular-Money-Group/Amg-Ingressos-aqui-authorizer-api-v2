@@ -1,9 +1,11 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
 using Amg_Ingressos_aqui_authorizer_api_v2.Consts;
 using Amg_Ingressos_aqui_authorizer_api_v2.Model;
 using Microsoft.IdentityModel.Tokens;
+using MongoDB.Bson;
 
 namespace Amg_Ingressos_aqui_authorizer_api_v2.Services
 {
@@ -18,7 +20,8 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Services
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim(ClaimTypes.Name, user.Name.ToString()),
-                    new Claim(ClaimTypes.Role, user.Name.ToString())
+                    new Claim(ClaimTypes.Role, user.Name.ToString()),
+                    new Claim("user", JsonSerializer.Serialize(user))
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
