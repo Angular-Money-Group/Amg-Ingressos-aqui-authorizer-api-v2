@@ -1,3 +1,4 @@
+using Amg_Ingressos_aqui_authorizer_api_v2.Dto;
 using Amg_Ingressos_aqui_authorizer_api_v2.Exceptions;
 using Amg_Ingressos_aqui_authorizer_api_v2.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -25,14 +26,14 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Controllers
         /// <returns>200 Lista de todos eventos</returns>
         /// <returns>204 Nenhum evento encontrado</returns>
         /// <returns>500 Erro inesperado</returns>
-        [HttpGet]
+        [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> Login(string email, string password)
+        public async Task<IActionResult> Login(LoginDto login)
         {
             if (!ModelState.IsValid)
                 throw new RuleException("Email e Senha são necessários");
 
-            var result = await _authService.Login(email, password);
+            var result = await _authService.Login(login.Email, login.Password);
             
             if (result.Message != null && result.Message.Any())
             {
@@ -53,14 +54,14 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Controllers
         /// <returns>200 Lista de todos eventos</returns>
         /// <returns>204 Nenhum evento encontrado</returns>
         /// <returns>500 Erro inesperado</returns>
-        [HttpGet]
+        [HttpPost]
         [Route("login/colab")]
-        public async Task<IActionResult> LoginColab(string email, string password,string idEvent)
+        public async Task<IActionResult> LoginColab(LoginQrCodeDto login)
         {
             if (!ModelState.IsValid)
                 throw new RuleException("Email e Senha são necessários");
 
-            var result = await _authService.LoginColab(email, password,idEvent);
+            var result = await _authService.LoginColab(login.Email, login.Password,login.IdEvent);
             
             if (result.Message != null && result.Message.Any())
             {
