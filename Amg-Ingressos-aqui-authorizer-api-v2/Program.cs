@@ -16,10 +16,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddHttpClient();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 // Add services to the container.
 builder.Services.Configure<AuthDatabaseSettings>(
     builder.Configuration.GetSection("AuthDatabase"));
@@ -41,16 +41,6 @@ builder.Services.AddScoped<ICrudRepository<User>, CrudRepository<User>>();
 //infra
 builder.Services.AddScoped<IDbConnection, DbConnection>();
 
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(builder =>
-    {
-        builder.AllowAnyOrigin()
-               .AllowAnyMethod()
-               .AllowAnyHeader();
-    });
-});
-
 var key = Encoding.ASCII.GetBytes(Settings.Secret);
 builder.Services.AddAuthentication(x =>
 {
@@ -70,6 +60,17 @@ builder.Services.AddAuthentication(x =>
     };
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
+
 var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
@@ -84,12 +85,12 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseStaticFiles(); // Certifique-se de ter essa linha
+app.UseAuthorization();
+app.MapControllers();
+app.UseMiddleware<AuthExceptionHandlerMiddleaware>();
 app.UseCors(x => x
                 .AllowAnyMethod()
                 .AllowAnyHeader()
                 .SetIsOriginAllowed(origin => true)
                 .AllowCredentials());
-app.UseAuthorization();
-app.MapControllers();
-app.UseMiddleware<AuthExceptionHandlerMiddleaware>();
 app.Run();
