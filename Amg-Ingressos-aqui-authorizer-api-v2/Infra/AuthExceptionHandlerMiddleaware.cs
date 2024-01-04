@@ -8,8 +8,8 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Infra
     public class AuthExceptionHandlerMiddleaware : AbstractExceptionHandlerMiddleware
     {
         public AuthExceptionHandlerMiddleaware(
-            ILogger<AuthExceptionHandlerMiddleaware>logger,
-            RequestDelegate next) : base(logger,next)
+            ILogger<AuthExceptionHandlerMiddleaware> logger,
+            RequestDelegate next) : base(logger, next)
         {
 
         }
@@ -40,7 +40,7 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Infra
                     code = HttpStatusCode.InternalServerError;
                     break;
             }
-            return (code, JsonConvert.SerializeObject(new MessageReturn(){Message=exception.Message}));
+            return (code, JsonConvert.SerializeObject(new MessageReturn() { Message = exception.Message }));
         }
     }
 }

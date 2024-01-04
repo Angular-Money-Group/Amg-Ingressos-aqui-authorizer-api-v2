@@ -41,7 +41,7 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Services
                 var dataUser = await _crudRepository.GetByFilter(dic);
                 if (dataUser != null && dataUser.Any())
                 {
-                    string token = TokenService.GenerateToken(dataUser.First());
+                    string token = TokenService.GenerateToken(dataUser[0]);
                     _messageReturn.Data = token;
                     return _messageReturn;
                 }
@@ -80,9 +80,9 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Services
                     throw new RuleException("Erro ao realizar login: Colaborador não cadastrado ao evento");
                 else
                 {
-                    if (((List<UserDto>)dataEvent.Data).Find(u => u.Id == dataUser.First().Id) != null)
+                    if (((List<UserDto>)dataEvent.Data).Find(u => u.Id == dataUser[0].Id) != null)
                     {
-                        string token = TokenService.GenerateToken(dataUser.First());
+                        string token = TokenService.GenerateToken(dataUser[0]);
                         _messageReturn.Data = token;
                         return _messageReturn;
                     }

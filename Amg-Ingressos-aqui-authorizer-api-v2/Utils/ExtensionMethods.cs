@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Amg_Ingressos_aqui_authorizer_api_v2.Exceptions;
 
 namespace Amg_Ingressos_aqui_authorizer_api_v2.Utils

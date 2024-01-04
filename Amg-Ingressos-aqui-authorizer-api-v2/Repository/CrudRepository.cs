@@ -14,6 +14,7 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Repository
         {
             _TCollection = dbconnectionIten.GetConnection<T>();
         }
+        
         public async Task<bool> Delete(string id)
         {
             if (id == null || string.IsNullOrEmpty(id))
@@ -60,9 +61,9 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Repository
                 throw new GetException("id é obrigatório");
 
             var filter = Builders<T>.Filter.Eq("_id", ObjectId.Parse(id));
-            var variants = await _TCollection.Find(filter).FirstOrDefaultAsync();
+            var data = await _TCollection.Find(filter).FirstOrDefaultAsync();
 
-            var result = variants ?? throw new GetException("Variant não encontrada");
+            var result = data ?? throw new GetException("Dado não encontrado");
 
             return result;
         }

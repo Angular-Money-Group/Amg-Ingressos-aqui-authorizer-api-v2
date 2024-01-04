@@ -1,11 +1,9 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using System.Text.Json;
 using Amg_Ingressos_aqui_authorizer_api_v2.Consts;
 using Amg_Ingressos_aqui_authorizer_api_v2.Model;
 using Microsoft.IdentityModel.Tokens;
-using MongoDB.Bson;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;

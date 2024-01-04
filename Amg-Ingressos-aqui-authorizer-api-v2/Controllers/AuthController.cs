@@ -28,13 +28,13 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Controllers
         /// <returns>500 Erro inesperado</returns>
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> Login([FromBody]LoginDto login)
+        public async Task<IActionResult> Login([FromBody] LoginDto login)
         {
             if (!ModelState.IsValid)
                 throw new RuleException("Email e Senha são necessários");
 
             var result = await _authService.Login(login.Email, login.Password);
-            
+
             if (result.Message != null && result.Message.Any())
             {
                 _logger.LogInformation(result.Message);
@@ -56,13 +56,13 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Controllers
         /// <returns>500 Erro inesperado</returns>
         [HttpPost]
         [Route("login/colab")]
-        public async Task<IActionResult> LoginColab([FromBody]LoginQrCodeDto login)
+        public async Task<IActionResult> LoginColab([FromBody] LoginQrCodeDto login)
         {
             if (!ModelState.IsValid)
                 throw new RuleException("Email e Senha são necessários");
 
-            var result = await _authService.LoginColab(login.Email, login.Password,login.IdEvent);
-            
+            var result = await _authService.LoginColab(login.Email, login.Password, login.IdEvent);
+
             if (result.Message != null && result.Message.Any())
             {
                 _logger.LogInformation(result.Message);

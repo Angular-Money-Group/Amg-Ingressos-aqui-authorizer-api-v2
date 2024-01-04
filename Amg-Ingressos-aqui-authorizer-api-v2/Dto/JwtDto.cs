@@ -8,7 +8,7 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Dto
         {
             JwtToken = string.Empty;
         }
-        
+
         [JsonPropertyName("jwtToken")]
         public string JwtToken { get; set; }
     }

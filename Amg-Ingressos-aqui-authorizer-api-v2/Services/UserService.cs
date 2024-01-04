@@ -28,12 +28,10 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonContent = await response.Content.ReadAsStringAsync();
-                    _messageReturn.Data = JsonConvert.DeserializeObject<List<UserDto>>(jsonContent);
+                    _messageReturn.Data = JsonConvert.DeserializeObject<List<UserDto>>(jsonContent) ?? new List<UserDto>();
                 }
                 else
-                {
                     _messageReturn.Message = "Erro ao obter os dados do usuário.";
-                }
 
                 return _messageReturn;
             }

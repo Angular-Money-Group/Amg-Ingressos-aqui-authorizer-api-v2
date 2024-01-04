@@ -8,6 +8,7 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Dto
             Password = string.Empty;
             IdEvent = string.Empty;
         }
+
         public string Email { get; set; }
         public string Password { get; set; }
         public string IdEvent { get; set; }
