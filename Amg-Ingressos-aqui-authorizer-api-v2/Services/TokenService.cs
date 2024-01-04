@@ -21,7 +21,7 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Services
                 {
                     new Claim(ClaimTypes.Name, user.Name.ToString()),
                     new Claim(ClaimTypes.Role, user.Name.ToString()),
-                    new Claim("user", JsonSerializer.Serialize(user))
+                    new Claim("user", JsonSerializer.Serialize(user).ToLower())
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
