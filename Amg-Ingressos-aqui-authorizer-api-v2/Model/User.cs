@@ -98,7 +98,7 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Model
         /// </summary>
         [BsonElement("updatedAt")]
         [JsonPropertyName("updatedAt")]
-        public DateTime updatedAt { get; set; }
+        public DateTime? updatedAt { get; set; }
 
         /// <summary>
         /// Senha de acesso

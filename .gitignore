@@ -10,9 +10,3 @@ Amg-Ingressos-aqui-authorizer-api-v2/obj
 
 # Config files
 applicationhost*.config
-
-# Lock files
-read*.lock
-Amg-Ingressos-aqui-authorizer-api-v2/obj/Amg-Ingressos-aqui-authorizer-api-v2.csproj.nuget.dgspec.json
-Amg-Ingressos-aqui-authorizer-api-v2/obj/project.assets.json
-Amg-Ingressos-aqui-authorizer-api-v2/obj/project.nuget.cache

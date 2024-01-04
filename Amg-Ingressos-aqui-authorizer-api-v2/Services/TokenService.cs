@@ -6,6 +6,9 @@ using Amg_Ingressos_aqui_authorizer_api_v2.Consts;
 using Amg_Ingressos_aqui_authorizer_api_v2.Model;
 using Microsoft.IdentityModel.Tokens;
 using MongoDB.Bson;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 
 namespace Amg_Ingressos_aqui_authorizer_api_v2.Services
 {
@@ -13,6 +16,11 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Services
     {
         public static string GenerateToken(User user)
         {
+            var settings = new JsonSerializerSettings
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                Converters = new List<JsonConverter> { new StringEnumConverter() }
+            };
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
@@ -21,7 +29,7 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Services
                 {
                     new Claim(ClaimTypes.Name, user.Name.ToString()),
                     new Claim(ClaimTypes.Role, user.Name.ToString()),
-                    new Claim("user", JsonSerializer.Serialize(user).ToLower())
+                    new Claim("user", JsonConvert.SerializeObject(user, settings))
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

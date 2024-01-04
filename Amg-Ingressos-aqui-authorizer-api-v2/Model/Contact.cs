@@ -15,14 +15,14 @@ namespace Amg_Ingressos_aqui_authorizer_api_v2.Model
         /// E-mail de validação 
         /// </summary> 
         [BsonElement("Email")]
-        [JsonPropertyName("Email")]
+        [JsonPropertyName("email")]
         public string Email { get; set; }
 
         /// <summary>
         /// Número para contato 
         /// </summary>    
         [BsonElement("PhoneNumber")]
-        [JsonPropertyName("PhoneNumber")]
+        [JsonPropertyName("phoneNumber")]
         public string PhoneNumber { get; set; }
     }
 }
